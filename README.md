@@ -1,1 +1,2 @@
-# PI-II---Web
+# PI-II---Web 
+Sistema voltado a biblioteca universitaria, acesso para alunos e bibliotecario . Funções de retirada,devolução de livro e raking de leitura até acesso a multas. O sistema foi criado para que se busque livros no banco de dados e realize suas operação.
