@@ -53,3 +53,85 @@ body {
 .input-group input:hover {
     border-color: #777;
 }
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-form {
+    border: 1px solid;
+    border-radius: 1%;
+    padding: 5px;
+    align-items: start;
+    max-width: 800px; 
+}
+
+.div-form-left label, 
+.div-form-left input, 
+.div-form-left select {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.div-form-right {
+  border-left: 2px solid #ddd;
+  padding-left: 20px;
+  display: block;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input-group input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #777;
+}
+
+.input-group input:hover {
+    border-color: #777;
+}
+
+/* extra: botões bonitos */
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button[type="reset"] {
+    background-color: #dc3545;
+}
+
+button[type="reset"]:hover {
+    background-color: #a71d2a;
+}
