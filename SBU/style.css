@@ -27,21 +27,6 @@ body {
     font-size: 25px;
 }
 
-.card{
-    background: #ffffff;
-    border-radius: 12px;
-    padding:22px;
-    box-shadow: 0 8px 30px rgba(16,24,40,0.06);
-    border:1px solid rgba(15,23,42,0.03);
-}
-
-.card h1{
-    margin:0 0 12px 0;
-    font-size:20px;
-    text-align:center;
-    color:#0f172a;
-}
-
 .div-form {
     padding: 10px;
     align-items: start;
@@ -102,72 +87,11 @@ body {
 .input-group input:hover {
     border-color: #777;
 }
-<<<<<<< HEAD
 
-body {
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.div-form {
-    border: 1px solid;
-    border-radius: 1%;
-    padding: 5px;
-    align-items: start;
-    max-width: 800px; 
-}
-
-.div-form-left label, 
-.div-form-left input, 
-.div-form-left select {
-    margin-bottom: 10px;
-    display: block;
-}
-
-.div-form-right {
-  border-left: 2px solid #ddd;
-  padding-left: 20px;
-  display: block;
-}
-
-.input-group {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.input-group label {
-  margin-bottom: 5px;
-  color: #555;
-}
-
-.input-group input {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-    transition: border 0.3s ease;
-}
-
-.input-group input:focus {
-    border-color: #777;
-}
-
-.input-group input:hover {
-    border-color: #777;
-}
-
-/* extra: botões bonitos */
 button {
     padding: 8px 16px;
     border: none;
     border-radius: 4px;
-    margin-right: 10px;
     cursor: pointer;
     background-color: #007BFF;
     color: #fff;
@@ -178,49 +102,29 @@ button:hover {
     background-color: #0056b3;
 }
 
-button[type="reset"] {
-    background-color: #dc3545;
-}
-
-button[type="reset"]:hover {
-    background-color: #a71d2a;
-}
-=======
-.file-label{
-    padding:5px;
-    border-radius:4px;
-    border:1px solid #ccc;
-    cursor:pointer;
-    text-align:center;
-}
-
-.preview {
+.card-box{
+    width: 320px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 4%;
+    box-shadow: 0 2px 3px rgba(48, 48, 48, 0.30), 0 6px 10px rgba(48, 48, 48, 0.15);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    border: 1px solid;
-    height: 100px;
 }
 
-.btn-acesso {
-    height: 50px;
-    padding: 12px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    background: #007BFF;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
-    width: 220px;
-}
-
-.btn-acesso:hover {
-    background: #1465bc;
-}
-
-.btn-select {
+.card-box-biblio {
+    width: 520px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 4%;
+    box-shadow: 0 2px 3px rgba(48, 48, 48, 0.30), 0 6px 10px rgba(48, 48, 48, 0.15);
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    align-items: center;
 }
->>>>>>> 602c8b69b3ae9219147f5cdf66545fc0a6b149fb
+
+.card-box h1, .card-box-biblio h1 {
+    margin-bottom: 20px;
+    color: #555;
+}
