@@ -102,8 +102,110 @@ body {
 .input-group input:hover {
     border-color: #777;
 }
-<<<<<<< HEAD
+HEAD
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    height: 100vh; /* ocupa a altura total da tela */
+    display: flex;
+    flex-direction: column;
+}
 
+/* ======== NAVBAR ======== */
+.navbar {
+    background-color: #003366;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ======== CONTAINER DO LOGIN ======== */
+.login-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 300px;
+    padding: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto; /* centraliza vertical e horizontalmente com flex no body */
+}
+
+/* Centraliza o conteúdo do body */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centro vertical */
+    align-items: center;     /* centro horizontal */
+}
+
+/* ======== TÍTULOS ======== */
+.login-container h1 {
+    color: #003366;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ======== CAMPOS ======== */
+.input-group,
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+input:focus {
+    border-color: #777;
+}
+
+/* ======== BOTÃO ======== */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* ======== LINK DE CADASTRO ======== */
+p {
+    text-align: center;
+    margin-top: 15px;
+    color: #333;
+}
+
+a {
+    color: #003366;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/*
 body {
     font-family: Arial, sans-serif;
 }
@@ -162,7 +264,7 @@ body {
     border-color: #777;
 }
 
-/* extra: botões bonitos */
+
 button {
     padding: 8px 16px;
     border: none;
@@ -184,8 +286,8 @@ button[type="reset"] {
 
 button[type="reset"]:hover {
     background-color: #a71d2a;
-}
-=======
+}*/
+/*=======*/
 .file-label{
     padding:5px;
     border-radius:4px;
