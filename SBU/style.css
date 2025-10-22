@@ -112,7 +112,7 @@ body {
     flex-direction: column;
 }
 
-/* ======== NAVBAR ======== */
+/*NAVBAR*/
 .navbar {
     background-color: #003366;
     color: white;
@@ -121,7 +121,7 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* ======== CONTAINER DO LOGIN ======== */
+/*CONTAINER DO LOGIN  */
 .login-container {
     background-color: #fff;
     border: 1px solid #ccc;
@@ -140,14 +140,14 @@ body {
     align-items: center;     /* centro horizontal */
 }
 
-/* ======== TÍTULOS ======== */
+/* TÍTULOS */
 .login-container h1 {
     color: #003366;
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* ======== CAMPOS ======== */
+/*CAMPOS */
 .input-group,
 .form-group {
     margin-bottom: 15px;
@@ -172,7 +172,7 @@ input:focus {
     border-color: #777;
 }
 
-/* ======== BOTÃO ======== */
+/* BOTÃO */
 button {
     width: 100%;
     padding: 10px;
@@ -189,7 +189,7 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* ======== LINK DE CADASTRO ======== */
+/* LINK DE CADASTRO */
 p {
     text-align: center;
     margin-top: 15px;
@@ -325,4 +325,4 @@ button[type="reset"]:hover {
     display: flex;
     gap: 10px;
 }
->>>>>>> 602c8b69b3ae9219147f5cdf66545fc0a6b149fb
+/*>>>>>>> 602c8b69b3ae9219147f5cdf66545fc0a6b149fb*/
