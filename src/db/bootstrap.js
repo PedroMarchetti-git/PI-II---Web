@@ -14,16 +14,18 @@ async function bootstrapAluno() {
     await conn.execute(sql);
     console.log('Tabela Alunos verificada/criada com sucesso.');
   } finally {
-    await conn.end();
+    await conn.release();
   }
 }
 
 async function bootstrapLivro() {
   const sql = `
-        CREATE TABLE IF NOT EXISTS Livro (
-            isbn INT(10) PRIMARY KEY,
+        CREATE TABLE IF NOT EXISTS Livros (
+            id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
             genero VARCHAR(50) NOT NULL,
-            nome VARCHAR(75) NOT NULL
+            titulo VARCHAR(75) NOT NULL,
+            autor VARCHAR(75) NOT NULL,
+            editora VARCHAR(50) NOT NULL
         );
     `;
 
@@ -32,7 +34,7 @@ async function bootstrapLivro() {
     await conn.execute(sql);
     console.log('Tabela Livro verificada/criada com sucesso.');
   } finally {
-    await conn.end();
+    await conn.release();
   }
 }
 

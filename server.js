@@ -1,6 +1,6 @@
-const app = require('./app');
-const { initPool } = require('./db');
-const { bootstrapAluno, bootstrapLivro } = require('./db/bootstrap');
+const app = require('./src/app');
+const { initPool } = require('./src/db');
+const { bootstrapAluno, bootstrapLivro } = require('./src/db/bootstrap');
 
 const PORT = process.env.PORT || 3000;
 

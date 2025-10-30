@@ -1,23 +1,21 @@
 const { getConnection } = require('../db');
 
-class AlunosRepository {
-  async create(aluno) {
+class LivrosRepository {
+  async create(livro) {
     const sql = `
-      INSERT INTO Alunos (ra, cpf, nome)
-      VALUES (:ra, :cpf, nome)
+      INSERT INTO Livros (titulo, autor, genero, editora)
+      VALUES (?, ?, ?, ?)
     `;
-    const binds = {
-      ra: aluno.ra,
-      cpf: aluno.nome
-    };
+    const values = [livro.titulo, livro.autor, livro.genero, livro.editora];
 
     const conn = await getConnection();
     try {
-      await conn.execute(sql, binds, { autoCommit: true });
+      await conn.query(sql, values);
     } finally {
-      await conn.close();
+      conn.release();
     }
   }
+
 
   async findAll() {
     const sql = `
@@ -56,4 +54,4 @@ class AlunosRepository {
   }
 }
 
-module.exports = AlunosRepository;
+module.exports = LivrosRepository;

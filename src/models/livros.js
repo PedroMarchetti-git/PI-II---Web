@@ -1,9 +1,9 @@
 class Livro {
-    constructor(isbn, nome, genero) {
-      this.isbn = isbn;
-      this.nome = nome;
-      this.genero = genero;
-    }
+  constructor(titulo, autor, genero, editora) {
+    this.titulo = titulo;
+    this.autor = autor;
+    this.genero = genero;
+    this.editora = editora;
   }
-  module.exports = Livro;
-  
+}
+module.exports = Livro;

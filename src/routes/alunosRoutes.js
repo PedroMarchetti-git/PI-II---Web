@@ -3,8 +3,8 @@ const { create, findAll, findOne } = require('../controllers/alunosController');
 
 const router = express.Router();
 
-router.post('/alunos', create);
-router.get('/alunos', findAll);
-router.get('/alunos/:ra', findOne);
+router.post('/', create);
+router.get('/', findAll);
+router.get('/:ra', findOne);
 
 module.exports = router;

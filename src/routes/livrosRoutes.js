@@ -3,8 +3,8 @@ const { create, findAll, findOne } = require('../controllers/livrosController');
 
 const router = express.Router();
 
-router.post('/livros', create);
-router.get('/livros', findAll);
-router.get('/livros/:isbn', findOne);
+router.post('/', create);
+router.get('/', findAll);
+router.get('/:isbn', findOne);
 
 module.exports = router;
