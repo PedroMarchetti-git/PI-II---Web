@@ -1,52 +1,39 @@
 const { getConnection } = require('./index');
 
-// Cria tabela se não existir (idempotente via try/catch do erro "já existe")
 async function bootstrapAluno() {
-    const sql = `
-    BEGIN
-      EXECUTE IMMEDIATE '
-        CREATE TABLE Alunos (
-          ra   NUMBER(10)     PRIMARY KEY,
-          cpf  NVARCHAR2(10)  NOT NULL,
-          nome VARCHAR2(75)  NOT NULL
-        )';
-    EXCEPTION
-      WHEN OTHERS THEN
-        IF SQLCODE != -955 THEN -- ORA-00955: name is already used by an existing object
-          RAISE;
-        END IF;
-    END;`;
+  const sql = `
+        CREATE TABLE IF NOT EXISTS Alunos (
+            ra INT(10) PRIMARY KEY,
+            cpf VARCHAR(14) NOT NULL,
+            nome VARCHAR(75) NOT NULL
+        );
+    `;
 
-    const conn = await getConnection();
-    try {
-        await conn.execute(sql);
-    } finally {
-        await conn.close();
-    }
+  const conn = await getConnection();
+  try {
+    await conn.execute(sql);
+    console.log('Tabela Alunos verificada/criada com sucesso.');
+  } finally {
+    await conn.end();
+  }
 }
 
 async function bootstrapLivro() {
-    const sql = `
-      BEGIN
-        EXECUTE IMMEDIATE '
-          CREATE TABLE Livro (
-            isbn   NUMBER(10)     PRIMARY KEY,
-            genero  VARCHAR2(50)  NOT NULL,
-            nome VARCHAR2(75)  NOT NULL
-          )';
-      EXCEPTION
-        WHEN OTHERS THEN
-          IF SQLCODE != -955 THEN -- ORA-00955: name is already used by an existing object
-            RAISE;
-          END IF;
-      END;`;
+  const sql = `
+        CREATE TABLE IF NOT EXISTS Livro (
+            isbn INT(10) PRIMARY KEY,
+            genero VARCHAR(50) NOT NULL,
+            nome VARCHAR(75) NOT NULL
+        );
+    `;
 
-    const conn = await getConnection();
-    try {
-        await conn.execute(sql);
-    } finally {
-        await conn.close();
-    }
+  const conn = await getConnection();
+  try {
+    await conn.execute(sql);
+    console.log('Tabela Livro verificada/criada com sucesso.');
+  } finally {
+    await conn.end();
+  }
 }
 
 module.exports = { bootstrapAluno, bootstrapLivro };

@@ -1,5 +1,6 @@
 module.exports = {
-    user: process.env.ORA_USER || 'system',
-    password: process.env.ORA_PASSWORD || 'admin',
-    connectString: process.env.ORA_CONNECT_STRING || 'localhost:1521/xe',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
 };

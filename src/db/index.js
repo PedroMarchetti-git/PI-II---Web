@@ -1,24 +1,15 @@
-const oracledb = require('oracledb');
+const mysql = require('mysql2/promise');
 const dbConfig = require('../../dbconfig.js');
 
-const poolSymbol = Symbol.for('oracle.pool');
-
-process.env.ORA_SDTZ = process.env.ORA_SDTZ || 'America/Sao_Paulo'; // horário de Brasília
+const poolSymbol = Symbol.for('mysql.pool');
 
 async function initPool() {
   if (global[poolSymbol]) return global[poolSymbol];
 
-  const config = {
-    user: dbConfig.user,
-    password: dbConfig.password,
-    connectString: dbConfig.connectString,
-    poolMin: 1,
-    poolMax: 5,
-    poolIncrement: 1
-  };
-
-  const pool = await oracledb.createPool(config);
+  // Cria o pool com as configs centralizadas no dbConfig
+  const pool = mysql.createPool(dbConfig);
   global[poolSymbol] = pool;
+
   return pool;
 }
 
