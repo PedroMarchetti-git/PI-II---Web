@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Devolução de Livro</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -12,25 +12,28 @@
     <div class="navbar">
         <h1>Sistema Bibliotecário Universitário</h1>
     </div>
-    <div class="ra"></div>
-    <div class="retirada">
-        <h1>Retirada de Livro</h1>
+    
+    <div class="container">
+        <div class="card-box">
+            <h1 style="margin-bottom: 25px;">Devolução de Livro</h1>
+            
+            <form class="form-cadastro">
+                <div class="input-group">
+                    <label for="isbn">Digite o código do Livro (ISBN):</label>
+                    <input type="text" id="isbn" name="ISBN" class="isbn">
+                </div>
+                <div class="input-group">
+                    <label for="ra">Digite seu RA:</label>
+                    <input type="text" id="ra" name="RA" class="ra">
+                </div>
+                
+                <div class="btns">
+                    <button type="submit" class="btn btn-primary">Devolver</button>
+                    <a href="acao.html" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
     </div>
-    <form>
-        <article>Digite o codigo do Livro: </article>
-        <label>
-            ISBN:
-            <input type="text" class="isbn" name="IBSN">
-        </label>
-        <article>Digite seu Ra:</article>
-        <label>
-            RA:
-            <input type="text" class="ra" name="RA">
-        </label><br>
-        <buTton>DEVOLVER </buTton><BR>
-        <button>Cancelar</button>
-        </section>
-    </form>
 </body>
 
 </html>
