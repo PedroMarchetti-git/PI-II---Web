@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Livros</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Sistema Bibliotecário Universitário</h1>
+    </div>
+
+    <div class="container">
+        <div class="card-box large" style="text-align: left;">
+            <h1>Consultar Livros Disponíveis</h1>
+            
+            <form id="form-busca" class="form-cadastro">
+                <div class="input-group">
+                    <label for="termo_busca">Digite o título ou autor:</label>
+                    <input type="search" id="termo_busca" name="termo_busca" placeholder="Ex: O Senhor dos Anéis">
+                </div>
+            </form>
+
+            <div class="search-results-container">
+                <ul id="lista-resultados">
+                    <li class="result-item">
+                        <strong>O Senhor dos Anéis</strong>
+                        <span>Autor: J.R.R. Tolkien</span>
+                    </li>
+                    <li class="result-item">
+                        <strong>O Hobbit</strong>
+                        <span>Autor: J.R.R. Tolkien</span>
+                    </li>
+                    
+                </ul>
+                <p id="feedback-busca" class="feedback-text">Digite algo para buscar...</p>
+            </div>
+
+            <div class="btns">
+                <a href="index.html" class="btn btn-secondary">Voltar</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="consultar.js"></script>
+</body>
+</html>
