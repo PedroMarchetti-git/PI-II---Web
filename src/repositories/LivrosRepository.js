@@ -16,40 +16,50 @@ class LivrosRepository {
     }
   }
 
-
+  
   async findAll() {
     const sql = `
-      SELECT
-        ra   AS "RA",
-        cpf  AS "CPF",
-        nome AS "Nome"
-      FROM Alunos
-      ORDER BY ra
+      SELECT * FROM Livros
+      ORDER BY titulo
     `;
     const conn = await getConnection();
     try {
-      const result = await conn.execute(sql);
-      return result.rows; // já vem como objetos
+      const [rows] = await conn.query(sql);
+      return rows;
     } finally {
-      await conn.close();
+      conn.release();
     }
   }
 
-  async findById(ra) {
+  async findById(id) { 
     const sql = `
-      SELECT
-        ra   AS "ra",
-        cpf  AS "cpf",
-        nome AS "Nome"
-      FROM Veiculos
-      WHERE ra = :ra
+      SELECT * FROM Livros
+      WHERE id = ?
     `;
     const conn = await getConnection();
     try {
-      const result = await conn.execute(sql, { ra });
-      return result.rows[0] || null;
+      const [rows] = await conn.query(sql, [id]);
+      return rows[0] || null; 
     } finally {
-      await conn.close();
+      conn.release();
+    }
+  }
+  async findAvailableByTerm(termo) {
+    const sql = `
+      SELECT * FROM Livros
+      WHERE (titulo LIKE ? OR autor LIKE ?) 
+      AND status = 'disponivel'
+      ORDER BY titulo
+    `;
+    const searchTerm = `%${termo}%`;
+    const values = [searchTerm, searchTerm];
+
+    const conn = await getConnection();
+    try {
+      const [rows] = await conn.query(sql, values);
+      return rows;
+    } finally {
+      conn.release();
     }
   }
 }
