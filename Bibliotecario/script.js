@@ -1,3 +1,28 @@
+const capaInput = document.getElementById('capa');
+const previewImage = document.querySelector('.preview .preview-image');
+const previewText = document.querySelector('.preview .preview-text');
+
+capaInput.addEventListener('change', function() {
+    const file = this.files[0];
+
+    if (file) {
+        const reader = new FileReader(); 
+
+        reader.onload = function(e) {
+            previewImage.src = e.target.result; 
+            previewImage.style.display = 'block'; 
+            previewText.style.display = 'none'; 
+        }
+
+        reader.readAsDataURL(file); 
+    } else {
+        previewImage.src = "";
+        previewImage.style.display = 'none'; 
+        previewText.style.display = 'block'; 
+    }
+});
+
+
 const form = document.getElementById('form-livro');
 
 form.addEventListener('submit', async (e) => {
