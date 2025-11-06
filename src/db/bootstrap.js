@@ -5,7 +5,8 @@ async function bootstrapAluno() {
         CREATE TABLE IF NOT EXISTS Alunos (
             ra INT(10) PRIMARY KEY,
             cpf VARCHAR(14) NOT NULL,
-            nome VARCHAR(75) NOT NULL
+            nome VARCHAR(75) NOT NULL,
+            status VARCHAR(20) NOT NULL DEFAULT 'disponivel'
         );
     `;
 
