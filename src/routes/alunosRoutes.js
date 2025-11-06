@@ -6,5 +6,6 @@ const router = express.Router();
 router.post('/', create);
 router.get('/', findAll);
 router.get('/:ra', findOne);
+router.post('/login', login);
 
 module.exports = router;
