@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <title>Cadastro livro</title>
+    <title>Cadastro de Livro</title>
 </head>
 
 <body>
@@ -13,44 +13,49 @@
         <h1>Sistema Bibliotecário Universitário</h1>
     </div>
     <div class="container">
-        <div class="card-box-biblio">
-            <div>
-                <h1>Cadastro de livro</h1>
-                <form id="form-livro">
-                    <div class="div-form">
-                        <div class="div-form-left">
-                            <div class="input-group">
-                                <label for="titulo">Título:</label>
-                                <input type="text" id="titulo" name="titulo" class="form-input">
-                            </div>
-                            <div class="input-group">
-                                <label for="autor">Autor:</label>
-                                <input type="text" name="autor" id="autor">
-                            </div>
-                            <div class="input-group">
-                                <label for="editora">Editora:</label>
-                                <input type="text" name="editora" id="editora">
-                            </div>
-                            <div class="input-group">
-                                <label for="genero">Genero:</label>
-                                <input type="text" name="genero" id="genero">
-                            </div>
+        <div class="card-box large"> 
+            
+            <h1>Cadastro de Livro</h1>
+            <form id="form-livro" class="form-cadastro"> 
+                <div class="div-form">
+                    <div class="div-form-left">
+                        <div class="input-group">
+                            <label for="titulo">Título:</label>
+                            <input type="text" id="titulo" name="titulo"> 
                         </div>
-                        <div class="div-form-right">
-                            <label for="capa">Capa do Livro:</label>
-                            <input type="file" name="capa" id="capa">
-                            <div class="preview"><img src="" alt="">Preview foto</div>
-                            <div class="btns">
-                                <button type="submit">Cadastrar</button>
-                                <a href="index.html"><button type="button">Voltar</button></a>
-                            </div>
+                        <div class="input-group">
+                            <label for="autor">Autor:</label>
+                            <input type="text" name="autor" id="autor">
+                        </div>
+                        <div class="input-group">
+                            <label for="editora">Editora:</label>
+                            <input type="text" name="editora" id="editora">
+                        </div>
+                        <div class="input-group">
+                            <label for="genero">Gênero:</label>
+                            <input type="text" name="genero" id="genero">
                         </div>
                     </div>
-                </form>
-            </div>
+                    <div class="div-form-right">
+                        <div class="input-group"> 
+                            <label for="capa">Capa do Livro:</label>
+                            <input type="file" name="capa" id="capa" accept="image/*"> </div>
+                        
+                        <div class="preview">
+                            <img src="" alt="Preview da capa" class="preview-image">
+                            <span class="preview-text">Preview foto</span>
+                        </div>
+                        <div class="btns">
+                            <button type="submit" class="btn btn-primary">Cadastrar</button> 
+                            <a href="index.html" class="btn btn-secondary">Voltar</a> 
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="script.js"></script> 
 </body>
 
 </html>
