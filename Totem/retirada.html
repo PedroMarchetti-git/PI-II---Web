@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Retirada</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -13,33 +11,34 @@
     <div class="navbar">
         <h1>Sistema Bibliotecário Universitário</h1>
     </div>
-    <div class="ra"></div>
-    <div class="retirada">
-        <h1>Retirada de Livro</h1>
-    </div>
-    <form>
-        <article>Digite o codigo do Livro: </article>
-        <label>
-            ISBN:
-            <input type="text" class="isbn" name="IBSN">
-        </label>
-        <article>Digite seu Ra:</article>
-        <label>
-            RA:
-            <input type="text" class="ra" name="RA">
-        </label><br>
-        <buTton>ENVIAR </buTton><BR>
-        <button>Cancelar</button>
-        <section>
-            <h3>Livros Retirados: </h3>
 
-            <ol>
-                <li>Harry potter </li>
-                <li>Meu pe de laranja lima</li>
-            </ol>
+    <div class="container">
+        
+        <div class="card-box">
+            
+            <h1>Retirada de Livro</h1>
+            
+            <form>
+                
+                <div class="input-group">
+                    <label for="isbn">Digite o código do Livro (ISBN):</label>
+                    <input type="text" id="isbn" name="IBSN">
+                </div>
 
-        </section>
-    </form>
-</body>
+                <div class="input-group">
+                    <label for="ra">Digite seu RA:</label>
+                    <input type="text" id="ra" name="RA">
+                </div>
+                
+                <br> <button type="submit">ENVIAR</button>
+                <button type="button">Cancelar</button>
+            </form>
 
+            <section style="margin-top: 20px; width: 100%;">
+                <h3>Livros Retirados:</h3>
+                <ol id="lista-livros">
+                                    </ol>
+            </section>
+
+        </div> </div> </body>
 </html>
