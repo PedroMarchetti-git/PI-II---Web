@@ -47,7 +47,7 @@ async function boostrapEmprestimo() {
           data_emprestimo DATETIME DEFAULT CURRENT_TIMESTAMP,
           data_devolucao DATETIME,
           FOREIGN KEY (id_user) REFERENCES Alunos(ra),
-          FOREIGN KEY (id_livro) REFERENCES Livros(id),
+          FOREIGN KEY (id_livro) REFERENCES Livros(id)
         )
       `;
 
