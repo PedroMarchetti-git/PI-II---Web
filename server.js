@@ -1,6 +1,6 @@
 const app = require('./src/app');
 const { initPool } = require('./src/db');
-const { bootstrapAluno, bootstrapLivro } = require('./src/db/bootstrap');
+const { bootstrapAluno, bootstrapLivro, boostrapEmprestimo } = require('./src/db/bootstrap');
 
 const PORT = process.env.PORT || 3000;
 
@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
     await initPool();
     await bootstrapAluno();
     await bootstrapLivro();
+    await boostrapEmprestimo();
 
     app.listen(PORT, () => {
       console.log(`Servidor ativo na porta ${PORT}...`);
