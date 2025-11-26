@@ -12,21 +12,22 @@
     <div class="navbar">
         <h1>Sistema Bibliotecário Universitário</h1>
     </div>
-    
+
     <div class="container">
         <div class="card-box">
             <h1 style="margin-bottom: 25px;">Devolução de Livro</h1>
-            
+
             <form class="form-cadastro">
                 <div class="input-group">
-                    <label for="isbn">Digite o código do Livro (ISBN):</label>
-                    <input type="text" id="isbn" name="ISBN" class="isbn">
+                    <label for="isbn">Selecione o livro emprestado:</label>
+                    <select id="isbn" name="isbn" class="livro-select">
+                    </select>
                 </div>
                 <div class="input-group">
                     <label for="ra">Digite seu RA:</label>
                     <input type="text" id="ra" name="RA" class="ra">
                 </div>
-                
+
                 <div class="btns">
                     <button type="submit" class="btn btn-primary">Devolver</button>
                     <a href="acao.html" class="btn btn-secondary">Cancelar</a>
@@ -35,5 +36,7 @@
         </div>
     </div>
 </body>
+
+<script src="devolucao.js"></script>
 
 </html>

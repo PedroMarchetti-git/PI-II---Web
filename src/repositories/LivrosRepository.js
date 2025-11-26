@@ -16,11 +16,15 @@ class LivrosRepository {
     }
   }
 
-  
+
   async findAll() {
     const sql = `
-      SELECT * FROM Livros
-      ORDER BY titulo
+      SELECT l.*
+      FROM Livros l
+      LEFT JOIN Emprestimos e
+        ON l.id = e.id_livro
+        AND e.data_devolucao IS NULL
+      WHERE e.id_livro IS NULL
     `;
     const conn = await getConnection();
     try {
@@ -31,7 +35,7 @@ class LivrosRepository {
     }
   }
 
-  async findById(id) { 
+  async findById(id) {
     const sql = `
       SELECT * FROM Livros
       WHERE id = ?
@@ -39,7 +43,7 @@ class LivrosRepository {
     const conn = await getConnection();
     try {
       const [rows] = await conn.query(sql, [id]);
-      return rows[0] || null; 
+      return rows[0] || null;
     } finally {
       conn.release();
     }

@@ -43,11 +43,11 @@ async function boostrapEmprestimo() {
   const sql = `
         CREATE TABLE IF NOT EXISTS Emprestimos (
           id INT (10) PRIMARY KEY AUTO_INCREMENT,
-          id_user INT (10) NOT NULL,
+          ra INT (10) NOT NULL,
           id_livro INT (10) NOT NULL,
           data_emprestimo DATETIME DEFAULT CURRENT_TIMESTAMP,
           data_devolucao DATETIME,
-          FOREIGN KEY (id_user) REFERENCES Alunos(ra),
+          FOREIGN KEY (ra) REFERENCES Alunos(ra),
           FOREIGN KEY (id_livro) REFERENCES Livros(id)
         )
       `;
