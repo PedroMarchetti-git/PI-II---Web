@@ -51,6 +51,51 @@ class AlunosRepository {
       await conn.release();
     }
   }
+
+  async getClassificacaoEmprestimos() {
+    const sql = `
+              SELECT 
+          a.ra,
+          a.nome,
+          COUNT(e.id) AS total_emprestimos,
+          l.titulo AS ultimo_livro,
+          e2.data_emprestimo AS ultimo_emprestimo
+      FROM Alunos a
+      LEFT JOIN Emprestimos e ON e.ra = a.ra
+      LEFT JOIN (
+          SELECT 
+              em.ra,
+              em.id_livro,
+              em.data_emprestimo
+          FROM Emprestimos em
+          INNER JOIN (
+              SELECT 
+                  ra,
+                  MAX(data_emprestimo) AS ultima_data
+              FROM Emprestimos
+              GROUP BY ra
+          ) AS ult
+          ON ult.ra = em.ra AND ult.ultima_data = em.data_emprestimo
+      ) e2 ON e2.ra = a.ra
+      LEFT JOIN Livros l ON l.id = e2.id_livro
+
+      GROUP BY 
+          a.ra,
+          a.nome,
+          l.titulo,
+          e2.data_emprestimo
+
+      ORDER BY total_emprestimos DESC;
+  `;
+
+    const conn = await getConnection();
+    try {
+      const [rows] = await conn.execute(sql);
+      return rows;
+    } finally {
+      await conn.release();
+    }
+  }
 }
 
 module.exports = AlunosRepository;
