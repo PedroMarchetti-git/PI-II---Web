@@ -320,3 +320,11 @@ a {
 .col-20 {
     width: 20%;
 }
+
+.voltar-btn {
+    font-size: 2rem;
+    text-decoration: none;
+    color: #333;
+    margin: 15px;
+    display: inline-block;
+}

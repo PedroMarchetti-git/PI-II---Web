@@ -31,36 +31,14 @@ async function findAll(req, res) {
     }
 }
 
-async function findOne(req, res) {
-    const { id } = req.params;
+async function findEmprestimos(req, res) {
     try {
-        const item = await repo.findById(id);
-        if (!item) {
-            return res.status(404).json({ erro: 'Livro não encontrado' });
-        }
-        return res.status(200).json(item);
-    } catch (err) {
-        console.error(err);
-        return res.status(500).json({ erro: 'Erro ao buscar livro' });
-    }
-}
-
-async function findAvailableByTerm(req, res) {
-    const { termo } = req.query;
-
-    if (!termo) {
-        return res.status(400).json({ erro: 'O termo de busca é obrigatório' });
-    }
-
-    try {
-        const itens = await repo.findAvailableByTerm(termo);
+        const itens = await repo.findEmprestimos();
         return res.status(200).json(itens);
-
     } catch (err) {
-        console.error('Erro ao buscar livros:', err);
-        return res.status(500).json({ erro: 'Erro ao buscar livros' });
+        console.error('Erro ao buscar empréstimos:', err);
+        return res.status(500).json({ erro: 'Erro ao buscar empréstimos' });
     }
 }
 
-
-module.exports = { create, findAll, findOne, findAvailableByTerm };
+module.exports = { create, findAll, findEmprestimos };

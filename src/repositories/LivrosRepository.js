@@ -35,32 +35,25 @@ class LivrosRepository {
     }
   }
 
-  async findById(id) {
+  async findEmprestimos() {
     const sql = `
-      SELECT * FROM Livros
-      WHERE id = ?
-    `;
-    const conn = await getConnection();
-    try {
-      const [rows] = await conn.query(sql, [id]);
-      return rows[0] || null;
-    } finally {
-      conn.release();
-    }
-  }
-  async findAvailableByTerm(termo) {
-    const sql = `
-      SELECT * FROM Livros
-      WHERE (titulo LIKE ? OR autor LIKE ?) 
-      AND status = 'disponivel'
-      ORDER BY titulo
-    `;
-    const searchTerm = `%${termo}%`;
-    const values = [searchTerm, searchTerm];
+    SELECT 
+      l.titulo,
+      l.autor,
+      l.genero,
+      l.editora,
+      a.nome AS aluno_nome,
+      e.data_emprestimo
+    FROM Emprestimos e
+    INNER JOIN Livros l ON e.id_livro = l.id
+    LEFT JOIN Alunos a ON e.ra = a.ra
+    WHERE e.data_devolucao IS NULL
+    ORDER BY e.data_emprestimo DESC
+  `;
 
     const conn = await getConnection();
     try {
-      const [rows] = await conn.query(sql, values);
+      const [rows] = await conn.query(sql);
       return rows;
     } finally {
       conn.release();
