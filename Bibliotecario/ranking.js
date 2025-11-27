@@ -15,6 +15,8 @@ async function carregarRanking() {
         }
 
         dados.forEach(item => {
+            const data = new Date(item.ultimo_emprestimo);
+            const dataSimples = data.toLocaleDateString("pt-BR");
 
             // Classificação
             let classificacao = "";
@@ -31,7 +33,7 @@ async function carregarRanking() {
                     <td>${item.nome}</td>
                     <td>${item.ultimo_livro || "—"}</td>
                     <td>${item.total_emprestimos}</td>
-                    <td>${item.ultimo_emprestimo || "—"}</td>
+                    <td>${ dataSimples || "—"}</td>
                     <td>${classificacao}</td>
                 </tr>
             `;

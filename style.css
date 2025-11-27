@@ -282,3 +282,41 @@ a {
     color: var(--text-light);
     font-size: 0.9em;
 }
+
+.titulo-ranking {
+    margin-top: 0;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 25px;
+}
+
+.table-ranking {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-ranking thead tr {
+    background: var(--primary-color);
+    color: var(--bg-white);
+}
+
+.table-ranking th,
+.table-ranking td {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    font-size: 15px;
+    color: var(--text-dark);
+}
+
+.table-ranking tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.col-20 {
+    width: 20%;
+}

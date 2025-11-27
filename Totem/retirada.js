@@ -71,7 +71,7 @@ form.addEventListener("submit", async (e) => {
         alert(result.mensagem);
 
         // limpa os campos
-        window.location.href = "acao.html";
+        window.location.href = "index.html";
 
     } catch (erro) {
         console.error(erro);
