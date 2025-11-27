@@ -48,7 +48,12 @@ async function findOne(req, res) {
 
 async function classificacaoEmprestimos(req, res) {
   try {
-    const resultado = await repo.getClassificacaoEmprestimos();
+    const ra = req.params.ra;
+    if (!ra) return res.status(400).json({ erro: 'RA não informado' });
+
+    const resultado = await repo.classificacaoPorRA(ra);
+    if (!resultado) return res.status(404).json({ erro: 'Aluno não encontrado' });
+
     return res.status(200).json(resultado);
   } catch (err) {
     console.error(err);

@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/', create);
 router.get('/', findAll);
-router.get('/classificacao/emprestimos', classificacaoEmprestimos);
+router.get('/classificacao/:ra', classificacaoEmprestimos);
 router.get('/:ra', findOne);
 
 module.exports = router;

@@ -52,46 +52,38 @@ class AlunosRepository {
     }
   }
 
-  async getClassificacaoEmprestimos() {
+  async classificacaoPorRA(ra) {
     const sql = `
-              SELECT 
-          a.ra,
-          a.nome,
-          COUNT(e.id) AS total_emprestimos,
-          l.titulo AS ultimo_livro,
-          e2.data_emprestimo AS ultimo_emprestimo
+    SELECT s.ra,
+           s.nome,
+           COALESCE(s.total_lidos, 0) AS quantidade_lidos,
+           s.ultimo_emprestimo,
+           l.titulo AS titulo_ultimo_livro,
+           s.classificacao
+    FROM (
+      SELECT a.ra,
+             a.nome,
+             counts.total_lidos,
+             counts.ultimo_emprestimo,
+             RANK() OVER (ORDER BY COALESCE(counts.total_lidos,0) DESC) AS classificacao
       FROM Alunos a
-      LEFT JOIN Emprestimos e ON e.ra = a.ra
       LEFT JOIN (
-          SELECT 
-              em.ra,
-              em.id_livro,
-              em.data_emprestimo
-          FROM Emprestimos em
-          INNER JOIN (
-              SELECT 
-                  ra,
-                  MAX(data_emprestimo) AS ultima_data
-              FROM Emprestimos
-              GROUP BY ra
-          ) AS ult
-          ON ult.ra = em.ra AND ult.ultima_data = em.data_emprestimo
-      ) e2 ON e2.ra = a.ra
-      LEFT JOIN Livros l ON l.id = e2.id_livro
-
-      GROUP BY 
-          a.ra,
-          a.nome,
-          l.titulo,
-          e2.data_emprestimo
-
-      ORDER BY total_emprestimos DESC;
+        SELECT e.ra,
+               COUNT(CASE WHEN e.data_devolucao IS NOT NULL THEN 1 END) AS total_lidos,
+               MAX(e.data_emprestimo) AS ultimo_emprestimo
+        FROM Emprestimos e
+        GROUP BY e.ra
+      ) counts ON counts.ra = a.ra
+    ) s
+    LEFT JOIN Emprestimos e ON e.ra = s.ra AND e.data_emprestimo = s.ultimo_emprestimo
+    LEFT JOIN Livros l ON l.id = e.id_livro
+    WHERE s.ra = ?;
   `;
 
     const conn = await getConnection();
     try {
-      const [rows] = await conn.execute(sql);
-      return rows;
+      const [rows] = await conn.execute(sql, [ra]);
+      return rows[0] || null;
     } finally {
       await conn.release();
     }

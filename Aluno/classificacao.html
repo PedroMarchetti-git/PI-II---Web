@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Ranking de Leitura</title>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h1>Sistema Bibliotecário Universitário</h1>
+    </div>
+
+    <div class="container">
+        <div class="card-box large">
+
+            <h2 class="titulo-ranking">Classificação Atual</h2>
+
+            <div class="input-group">
+                <label for="pesquisa" style="text-align: left;">RA:</label>
+                <input type="text" id="pesquisa" name="pesquisa">
+            </div>
+
+            <div class="btns">
+                <button class="btn btn-primary" onclick="buscarLeitores()">Pesquisar</button>
+            </div>
+
+
+            <div id="ranking-container" class="table-wrapper">
+                <table class="table-ranking">
+                    <thead>
+                        <tr>
+                            <th class="col-20">NOME</th>
+                            <th class="col-20">TÍTULO DO ÚLTIMO LIVRO</th>
+                            <th class="col-20">QUANTIDADE LIDOS</th>
+                            <th class="col-20">ÚLTIMO EMPRÉSTIMO</th>
+                            <th class="col-20">CLASSIFICAÇÃO</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="lista-leitor"></tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <script src="js/classificacao.js"></script>
+</body>
+
+</html>
