@@ -4,7 +4,7 @@ async function carregarRanking() {
     tbody.innerHTML = "<tr><td colspan='5'>Carregando...</td></tr>";
 
     try {
-        const resposta = await fetch("http://localhost:5000/alunos/classificacao/emprestimos");
+        const resposta = await fetch("http://localhost:3000/alunos/classificacao/emprestimos");
         const dados = await resposta.json();
 
         tbody.innerHTML = ""; // limpa a tabela
