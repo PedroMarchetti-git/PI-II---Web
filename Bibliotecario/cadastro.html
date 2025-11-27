@@ -12,16 +12,18 @@
     <div class="navbar">
         <h1>Sistema Bibliotecário Universitário</h1>
     </div>
+    <a href="javascript:history.back()" class="voltar-btn">←</a>
+
     <div class="container">
-        <div class="card-box large"> 
-            
+        <div class="card-box large">
+
             <h1>Cadastro de Livro</h1>
-            <form id="form-livro" class="form-cadastro"> 
+            <form id="form-livro" class="form-cadastro">
                 <div class="div-form">
                     <div class="div-form-left">
                         <div class="input-group">
                             <label for="titulo">Título:</label>
-                            <input type="text" id="titulo" name="titulo"> 
+                            <input type="text" id="titulo" name="titulo">
                         </div>
                         <div class="input-group">
                             <label for="autor">Autor:</label>
@@ -37,25 +39,26 @@
                         </div>
                     </div>
                     <div class="div-form-right">
-                        <div class="input-group"> 
+                        <div class="input-group">
                             <label for="capa">Capa do Livro:</label>
-                            <input type="file" name="capa" id="capa" accept="image/*"> </div>
-                        
+                            <input type="file" name="capa" id="capa" accept="image/*">
+                        </div>
+
                         <div class="preview">
                             <img src="" alt="Preview da capa" class="preview-image">
                             <span class="preview-text">Preview foto</span>
                         </div>
                         <div class="btns">
-                            <button type="submit" class="btn btn-primary">Cadastrar</button> 
-                            <a href="index.html" class="btn btn-secondary">Voltar</a> 
+                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            <a href="index.html" class="btn btn-secondary">Voltar</a>
                         </div>
                     </div>
                 </div>
             </form>
-            
+
         </div>
     </div>
-    <script src="js/cadastro.js"></script> 
+    <script src="js/cadastro.js"></script>
 </body>
 
 </html>
