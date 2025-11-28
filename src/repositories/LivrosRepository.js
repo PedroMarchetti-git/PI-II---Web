@@ -61,4 +61,35 @@ class LivrosRepository {
   }
 }
 
+async function findDisponiveis() {
+  const sql = `
+    SELECT 
+    l.id AS livro_id, 
+    l.genero,         
+    l.titulo, 
+    l.autor, 
+    l.editora,        
+    'Disponível' AS status  -- Campo de status criado dinamicamente
+    FROM 
+      Livros l
+    WHERE
+    NOT EXISTS (
+      SELECT 1
+      FROM Emprestimos e
+      WHERE 
+      e.id_livro = l.id AND e.data_devolucao IS NULL
+    )
+    `;
+
+    try {
+        const [resultados] = await db.query(sql);
+        
+        return resultados;
+
+    } catch (error) {
+        console.error("Erro no Repository (findDisponiveis - NOT EXISTS):", error);
+        throw error; 
+    }
+}
+
 module.exports = LivrosRepository;

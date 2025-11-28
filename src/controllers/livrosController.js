@@ -41,4 +41,15 @@ async function findEmprestimos(req, res) {
     }
 }
 
-module.exports = { create, findAll, findEmprestimos };
+async function findDisponiveis(req, res) {
+    try{
+        const itens = await repo.findDisponiveis();
+        return res.status(200).json(itens);
+    }
+    catch(err){
+        console.error('Erro ao buscar livros disponíveis:', err);
+        return res.status(500).json({erro: 'Erro ao buscar livros disponíveis'});
+    }
+    
+}
+module.exports = { create, findAll, findEmprestimos, findDisponiveis };
