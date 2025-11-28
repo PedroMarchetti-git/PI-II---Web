@@ -24,7 +24,7 @@ form.addEventListener("submit", async (e) => {
         alert(result.mensagem);
 
         if (resp.ok) {
-            location.href = "acao.html";
+            location.href = "index.html";
         }
 
     } catch (err) {
