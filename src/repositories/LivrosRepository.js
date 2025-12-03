@@ -59,37 +59,42 @@ class LivrosRepository {
       conn.release();
     }
   }
-}
 
-async function findDisponiveis() {
-  const sql = `
-    SELECT 
-    l.id AS livro_id, 
-    l.genero,         
-    l.titulo, 
-    l.autor, 
-    l.editora,        
-    'Disponível' AS status  -- Campo de status criado dinamicamente
-    FROM 
-      Livros l
-    WHERE
-    NOT EXISTS (
-      SELECT 1
-      FROM Emprestimos e
-      WHERE 
-      e.id_livro = l.id AND e.data_devolucao IS NULL
-    )
+  async buscarLivrosDisponiveis(nome) {
+
+    const sql = `
+        SELECT 
+            l.id AS livro_id,
+            l.genero,
+            l.titulo,
+            l.autor,
+            l.editora,
+            'Disponível' AS status
+        FROM Livros l
+        WHERE
+            NOT EXISTS (
+                SELECT 1 FROM Emprestimos e
+                WHERE e.id_livro = l.id
+                AND e.data_devolucao IS NULL
+            )
+        AND l.titulo LIKE ?
     `;
 
-    try {
-        const [resultados] = await db.query(sql);
-        
-        return resultados;
+    const like = `%${nome}%`;
 
-    } catch (error) {
-        console.error("Erro no Repository (findDisponiveis - NOT EXISTS):", error);
-        throw error; 
+    const conn = await getConnection();
+    try {
+      const [resultados] = await conn.query(sql, [like]);
+      return resultados;
+
+    } catch (err) {
+      console.error("Erro no Repository (buscarLivrosDisponiveis):", err);
+      throw err;
+
+    } finally {
+      conn.release();
     }
+  }
 }
 
 module.exports = LivrosRepository;

@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-async function buscarLivros(termo) {
-    console.log(`Buscando por: ${termo}`);
+async function buscarLivros(nome) {
+    console.log(`Buscando por: ${nome}`);
     const feedbackBusca = document.getElementById('feedback-busca');
     
     try {
 
-        const response = await fetch(`http://localhost:3000/livros/buscar/termo?termo=${termo}`);
+        const response = await fetch(`http://localhost:3000/livros/disponiveis?nome=${nome}`);
         
         if (response.ok) {
             const livros = await response.json();
