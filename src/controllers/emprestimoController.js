@@ -45,4 +45,16 @@ async function emprestimosAtivos(req, res) {
     }
 }
 
-module.exports = { create, devolucao, emprestimosAtivos};
+async function getClassificacaoLeitores(req, res) {
+    try {
+        const ranking = await repo.getClassificacaoLeitores();
+        
+        return res.status(200).json(ranking);
+        
+    } catch (err) {
+        console.error('Erro ao buscar ranking de leitores:', err);
+        return res.status(500).json({ erro: 'Erro ao buscar ranking de leitores' });
+    }
+}
+
+module.exports = { create, devolucao, emprestimosAtivos, getClassificacaoLeitores};

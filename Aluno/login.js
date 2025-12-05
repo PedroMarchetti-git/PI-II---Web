@@ -4,7 +4,7 @@ form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const ra = document.getElementById('ra_login').value;
-    const senha = document.getElementById('senha_login').value;
+    //const senha = document.getElementById('senha_login').value;
 
     try {
         const response = await fetch('http://localhost:3000/alunos/login', {
